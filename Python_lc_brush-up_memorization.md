@@ -459,3 +459,154 @@ import copy
 # deep_copied_dict["key2"].append(4) # nested_dict["key2"] 不会改变
 ```
 
+## collections
+
+### collections.Counter
+
+`Counter` 是一个字典的子类，用于统计可哈希对象的出现次数。它非常适合用来快速统计字符、数字或任何其他可哈希元素的频率。
+
+```python
+from collections import Counter
+
+# 初始化
+c1 = Counter('leetcode')
+print(f"c1: {c1}") # 输出: c1: Counter({'e': 3, 'l': 1, 't': 1, 'c': 1, 'o': 1, 'd': 1})
+
+c2 = Counter(['a', 'b', 'a', 'c', 'b', 'a'])
+print(f"c2: {c2}") # 输出: c2: Counter({'a': 3, 'b': 2, 'c': 1})
+
+c3 = Counter(a=3, b=2, c=1)
+print(f"c3: {c3}") # 输出: c3: Counter({'a': 3, 'b': 2, 'c': 1})
+
+# 访问计数
+print(f"Count of 'e' in c1: {c1['e']}")  # 输出: Count of 'e' in c1: 3
+print(f"Count of 'z' in c1: {c1['z']}")  # 输出: Count of 'z' in c1: 0
+
+# 增加/更新计数
+c1.update('leet')
+print(f"c1 after update('leet'): {c1}")
+# 输出: c1 after update('leet'): Counter({'e': 5, 'l': 2, 't': 2, 'c': 1, 'o': 1, 'd': 1})
+
+c1['c'] += 1
+print(f"c1 after c1['c'] += 1: {c1}")
+# 输出: c1 after c1['c'] += 1: Counter({'e': 5, 'l': 2, 't': 2, 'c': 2, 'o': 1, 'd': 1})
+
+# 获取元素
+elements_list = list(c1.elements())
+print(f"Elements of c1: {elements_list}") # 输出会比较长，例如: ['l', 'l', 'e', 'e', 'e', 'e', 'e', ...]
+
+# 最常见的元素
+most_common_c1 = c1.most_common(2)
+print(f"Two most common in c1: {most_common_c1}") # 输出: Two most common in c1: [('e', 5), ('l', 2)]
+
+# 算术运算
+cnt1 = Counter(a=2, b=1, x=5) # Adding 'x' for distinctness in subtraction
+cnt2 = Counter(a=1, b=3, y=2) # Adding 'y' for distinctness
+print(f"cnt1: {cnt1}")
+print(f"cnt2: {cnt2}")
+
+print(f"cnt1 + cnt2: {cnt1 + cnt2}") # 加法，计数相加
+print(f"cnt1 - cnt2: {cnt1 - cnt2}") # 减法，保留正数计数 (b will be 1-3=-2, so not shown)
+print(f"cnt2 - cnt1: {cnt2 - cnt1}")
+print(f"cnt1 & cnt2: {cnt1 & cnt2}") # 交集，取最小计数
+print(f"cnt1 | cnt2: {cnt1 | cnt2}") # 并集，取最大计数
+```
+
+### collections.deque
+
+`deque` (double-ended queue) 是一种类似列表的容器，支持在两端进行快速的添加（append）和弹出（pop）操作 (O(1) 时间复杂度)。它非常适合实现队列（FIFO）和栈（LIFO）。
+
+```python
+from collections import deque
+
+# 初始化
+d_empty = deque()
+print(f"Empty deque: {d_empty}")
+
+d_list = deque([1, 2, 3, 4])
+print(f"Deque from list: {d_list}")
+
+d_str = deque('leetcode')
+print(f"Deque from string: {d_str}")
+
+d_maxlen = deque(maxlen=3) # 创建一个固定最大长度的deque
+print(f"Deque with maxlen=3: {d_maxlen}")
+
+# 从右端添加/删除
+d_list.append(5)
+print(f"After append(5): {d_list}")
+item_pop = d_list.pop()
+print(f"Popped item from right: {item_pop}, deque: {d_list}")
+
+# 从左端添加/删除
+d_list.appendleft(0)
+print(f"After appendleft(0): {d_list}")
+item_popleft = d_list.popleft()
+print(f"Popped item from left: {item_popleft}, deque: {d_list}")
+
+# 扩展
+d_list.extend([6, 7])
+print(f"After extend([6, 7]): {d_list}")
+d_list.extendleft([-1, -2]) # 注意顺序: -2 会在 -1 的左边
+print(f"After extendleft([-1, -2]): {d_list}") #  deque([-2, -1, 1, 2, 3, 4, 6, 7])
+
+# 旋转
+d_rotate = deque([1, 2, 3, 4, 5])
+print(f"Original for rotation: {d_rotate}")
+d_rotate.rotate(2)  # 向右旋转2个位置
+print(f"After rotate(2): {d_rotate}") # deque([4, 5, 1, 2, 3])
+d_rotate.rotate(-1) # 向左旋转1个位置
+print(f"After rotate(-1): {d_rotate}") # deque([5, 1, 2, 3, 4])
+
+# 访问元素
+print(f"First element of d_rotate: {d_rotate[0]}")
+print(f"Last element of d_rotate: {d_rotate[-1]}")
+
+# 最大长度 (如果设置了)
+d_maxlen.append(1)
+d_maxlen.append(2)
+d_maxlen.append(3)
+print(f"d_maxlen after 3 appends: {d_maxlen}") # deque([1, 2, 3], maxlen=3)
+d_maxlen.append(4)
+print(f"d_maxlen after 4th append: {d_maxlen}") # deque([2, 3, 4], maxlen=3)
+d_maxlen.appendleft(0)
+print(f"d_maxlen after appendleft(0): {d_maxlen}") # deque([0, 2, 3], maxlen=3)
+```
+
+### collections.defaultdict
+
+`defaultdict` 是字典 (`dict`) 的一个子类，它在字典中查找一个不存在的键时，会为这个键提供一个默认值，而不会引发 `KeyError`。你需要提供一个工厂函数（如 `int`、`list`、`set` 等）在创建 `defaultdict` 时，当访问不存在的键时，该工厂函数会被调用来生成默认值。
+
+```python
+from collections import defaultdict
+
+# 初始化
+# 当键不存在时，默认值为 0
+dd_int = defaultdict(int)
+# 当键不存在时，默认值为一个空列表 []
+dd_list = defaultdict(list)
+# 当键不存在时，默认值为一个空集合 set()
+dd_set = defaultdict(set)
+# 使用 lambda 定义更复杂的默认值
+dd_custom = defaultdict(lambda: "N/A")
+
+# 访问/赋值
+dd_list['fruits'].append('apple')
+dd_list['fruits'].append('banana')
+dd_list['vegetables'].append('carrot')
+print(f"dd_list: {dd_list}")
+# 输出: dd_list: defaultdict(<class 'list'>, {'fruits': ['apple', 'banana'], 'vegetables': ['carrot']})
+
+print(f"dd_int['count'] (before assignment): {dd_int['count']}") # 输出: 0
+dd_int['count'] += 1
+print(f"dd_int['count'] (after increment): {dd_int['count']}") # 输出: 1
+print(f"dd_int: {dd_int}") # defaultdict(<class 'int'>, {'count': 1})
+
+print(f"dd_set['items'] (before add): {dd_set['items']}") # 输出: set()
+dd_set['items'].add('item1')
+print(f"dd_set: {dd_set}") # defaultdict(<class 'set'>, {'items': {'item1'}})
+
+print(f"dd_custom['missing_key']: {dd_custom['missing_key']}") # 输出: N/A
+print(f"dd_custom: {dd_custom}") # defaultdict(<function <lambda> at ...>, {'missing_key': 'N/A'})
+```
+

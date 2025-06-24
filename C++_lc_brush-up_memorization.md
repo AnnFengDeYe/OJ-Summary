@@ -1,5 +1,18 @@
 # C++\_lc\_brush-up\_memorization
 
+## ASCII码
+
+只需要记住下面三个字符的ASCII码，它们是各自区间的“起点”：
+
+- **'0' = 48** (数字的起点)
+- **'A' = 65** (大写字母的起点)
+- **'a' = 97** (小写字母的起点)
+- 大小写字母之间的差值是 **32** (`'a' - 'A' = 97 - 65 = 32`)。
+
+B的ASCII码是 65 + (2 - 1) = 66
+
+W的ASCII码是 65 + (23 - 1) = 87
+
 ## 溢出判断
 
 判断一个以科学记数法表示的数是否会导致 `int` 类型溢出：
@@ -7,6 +20,12 @@
 关键阈值：大约 $2×10^9$ (二十亿)
 
 **C++:** `int` 通常是 32 位有符号整数。其范围大约是 $-2×10^9$ 到 $2×10^9$(更精确地说是 $[−2^{31},2^{31}−1]$，即 [−2147483648,2147483647])。
+
+判断一个以科学记数法表示的数是否会导致 `long long` 类型溢出：
+
+关键阈值：大约 $9×10^{18}$ 
+
+* `10^9 * 10^9 = 10^{18}`，两个 `int` 最大值的乘积正好在 `long long` 的范围内。
 
 ## unordered_map
 
@@ -34,6 +53,10 @@ map_name.erase(key);
 // 元素个数
 int size = map_name.size();
 ```
+
+当使用**下标运算符 `[]`** 来访问一个不存在的键（key）时，这个键会被**自动插入**到 map 中，并且其对应的值（value）会被**值初始化（value-initialized）**。对于 `int` 这种基本数据类型，值初始化的结果就是 **`0`**。
+
+只想**查询**一个键是否存在而不希望修改 map 时，应该使用 `.find()` 或 `.count()` 方法。如果你确定一个键应该存在，并且希望在它不存在时得到一个错误，那么应该使用 `.at()` 方法，因为它会抛出异常。
 
 ## vector
 
@@ -526,6 +549,8 @@ bool is_greater = (s_comp1 > "ABC");       // true
 
 ## 有序哈希表std::set
 
+对于一个空的 `set` 或任何 C++ 容器，它的起始迭代器和末尾迭代器是相等的，即 `window.begin() == window.end()`
+
 ```cpp
 #include <iostream>
 #include <set>
@@ -723,6 +748,360 @@ int main() {
     std::cout << std::endl;
     long count_in_range = std::distance(range_start, range_end);
     std::cout << "Count in range [" << low_val << ", " << high_val << "]: " << count_in_range << std::endl;
+
+    return 0;
+}
+```
+
+## bitset
+
+C++ 中的 `std::bitset` 够存储和操作固定大小的位序列（0 或 1）。
+
+### 1. **初始化**
+
+```C++
+#include <iostream>
+#include <string>
+#include <bitset>
+
+int main() {
+    // 默认构造 (全为 0)
+    std::bitset<8> b1;
+    std::cout << "b1 (default): " << b1 << std::endl; // b1: 00000000
+
+    // 使用无符号长整型 (unsigned long long)
+    std::bitset<8> b2(42);    // 42 的二进制是 00101010
+    std::cout << "b2 (from 42): " << b2 << std::endl; // b2: 00101010
+
+    std::bitset<4> b3(15);    // 15 的二进制是 1111
+    std::cout << "b3 (from 15): " << b3 << std::endl; // b3: 1111
+
+    std::bitset<4> b4(20);    // 20 的二进制是 10100，b4 只能存4位，取低4位
+    std::cout << "b4 (from 20, size 4): " << b4 << std::endl; // b4: 0100
+
+    // 使用字符串
+    std::string s = "10110";
+    std::bitset<5> b5(s);
+    std::cout << "b5 (from string \"10110\"): " << b5 << std::endl; // b5: 10110
+
+    std::bitset<8> b6(s); // 高位用0填充
+    std::cout << "b6 (from string \"10110\", size 8): " << b6 << std::endl; // b6: 00010110
+
+    std::bitset<3> b7(s); // 只取前3位 (实际上是字符串的前N位，如果字符串长于N)
+                          // 或者整个字符串如果字符串短于N (高位补0)
+                          // 对于bitset(string), 它会尝试转换整个字符串。
+                          // 如果字符串长度 > N, 它会用字符串的最后 N 个字符。
+                          // 如果字符串长度 < N, 它会用整个字符串，并在左边填充0.
+                          // The behavior is: it uses the last N characters of the string if string.length() > N.
+                          // If string.length() <= N, it uses the whole string, padding with '0's to the left.
+                          // However, the constructor std::bitset<N>(const basic_string<...>&, pos, count) is different.
+                          // The simple std::bitset<N>(str) tries to initialize from the whole string.
+                          // Let's re-verify the behavior for b7 for clarity based on cppreference.
+                          // For std::bitset<N>(str): If str.size() > N, it uses the N rightmost characters.
+                          // If str.size() <= N, it uses all characters, padding with 0s on the left.
+    std::string s_for_b7 = "101";
+    std::bitset<3> b7_corrected(s_for_b7);
+    std::cout << "b7_corrected (from string \"101\", size 3): " << b7_corrected << std::endl; // b7: 101
+
+    std::string s_long_b7_test = "11101"; // length 5
+    std::bitset<3> b7_test_long_str(s_long_b7_test); // Should take "101" (rightmost 3)
+    std::cout << "b7_test_long_str (from string \"11101\", size 3): " << b7_test_long_str << std::endl; // b7_test_long_str: 101
+
+
+    std::string s_long = "00110101101"; // length 11
+    // From s_long, starting at index 2 ("110101101"), take 6 characters "110101"
+    std::bitset<6> b8(s_long, 2, 6);
+    std::cout << "b8 (from s_long, pos 2, count 6): " << b8 << std::endl; // b8: 110101
+
+    // From "11110000", starting at index 4 ("0000"), take 4 characters "0000"
+    std::bitset<4> b9("11110000", 4, 4);
+    std::cout << "b9 (from \"11110000\", pos 4, count 4): " << b9 << std::endl; // b9: 0000
+
+    return 0;
+}
+```
+
+### 2. **访问和修改单个位**
+
+```C++
+#include <iostream>
+#include <string>
+#include <bitset>
+#include <stdexcept> // For std::out_of_range
+
+int main() {
+    // operator[]
+    std::bitset<8> bs_access("10101010");
+    std::cout << "Initial bs_access: " << bs_access << std::endl;
+    std::cout << "bs_access[0]: " << bs_access[0] << std::endl; // 最右边的位
+    std::cout << "bs_access[1]: " << bs_access[1] << std::endl;
+    std::cout << "bs_access[7]: " << bs_access[7] << std::endl; // 最左边的位
+
+    bs_access[0] = 1; // 设置最右边的位为 1
+    bs_access[7] = 0; // 设置最左边的位为 0
+    std::cout << "bs_access after modification: " << bs_access << std::endl; // 00101011
+
+    // set(pos, value)
+    std::bitset<4> bs_set; // 0000
+    std::cout << "Initial bs_set: " << bs_set << std::endl;
+    bs_set.set(0);      // 设置第0位为1 -> 0001
+    std::cout << "bs_set after set(0): " << bs_set << std::endl;
+    bs_set.set(2, true);  // 设置第2位为1 -> 0101
+    std::cout << "bs_set after set(2, true): " << bs_set << std::endl;
+    bs_set.set(3, false); // 设置第3位为0 (如果之前是1) -> 0101 (无变化，因为本来就是0)
+    std::cout << "bs_set after set(3, false): " << bs_set << std::endl;
+
+    // reset(pos)
+    std::bitset<4> bs_reset("1111");
+    std::cout << "Initial bs_reset: " << bs_reset << std::endl;
+    bs_reset.reset(1); // 将第1位清零 -> 1101
+    std::cout << "bs_reset after reset(1): " << bs_reset << std::endl;
+    bs_reset.reset(3); // 将第3位清零 -> 0101
+    std::cout << "bs_reset after reset(3): " << bs_reset << std::endl;
+
+    // flip(pos)
+    std::bitset<4> bs_flip("1010");
+    std::cout << "Initial bs_flip: " << bs_flip << std::endl;
+    bs_flip.flip(0); // 翻转第0位 -> 1011
+    std::cout << "bs_flip after flip(0): " << bs_flip << std::endl;
+    bs_flip.flip(2); // 翻转第2位 -> 1111
+    std::cout << "bs_flip after flip(2): " << bs_flip << std::endl;
+
+    // test(pos)
+    std::bitset<4> bs_test("1001");
+    std::cout << "Initial bs_test: " << bs_test << std::endl;
+    if (bs_test.test(0)) {
+        std::cout << "Bit 0 of bs_test is set." << std::endl;
+    }
+    if (!bs_test.test(1)) {
+        std::cout << "Bit 1 of bs_test is not set." << std::endl;
+    }
+    try {
+        bs_test.test(4); // Accessing out of bounds
+    } catch (const std::out_of_range& e) {
+        std::cerr << "Exception for bs_test.test(4): " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+```
+
+### 3. **对所有位进行操作**
+
+```C++
+#include <iostream>
+#include <string>
+#include <bitset>
+
+int main() {
+    // set()
+    std::bitset<4> bs_all_set; // 0000
+    std::cout << "Initial bs_all_set: " << bs_all_set << std::endl;
+    bs_all_set.set();         // 1111
+    std::cout << "bs_all_set after set(): " << bs_all_set << std::endl;
+
+    // reset()
+    std::bitset<4> bs_all_reset("1010");
+    std::cout << "Initial bs_all_reset: " << bs_all_reset << std::endl;
+    bs_all_reset.reset();     // 0000
+    std::cout << "bs_all_reset after reset(): " << bs_all_reset << std::endl;
+
+    // flip()
+    std::bitset<4> bs_all_flip("1100");
+    std::cout << "Initial bs_all_flip: " << bs_all_flip << std::endl;
+    bs_all_flip.flip();       // 0011
+    std::cout << "bs_all_flip after flip(): " << bs_all_flip << std::endl;
+
+    return 0;
+}
+```
+
+### 4. **查询 `bitset` 状态**
+
+```C++
+#include <iostream>
+#include <string>
+#include <bitset>
+
+int main() {
+    // count()
+    std::bitset<8> bs_count("10101100");
+    std::cout << "bs_count: " << bs_count << std::endl;
+    std::cout << "Number of set bits in bs_count: " << bs_count.count() << std::endl;
+
+    // size()
+    std::bitset<16> bs_size_demo;
+    std::cout << "Size of bs_size_demo: " << bs_size_demo.size() << std::endl;
+    std::cout << "Size of bs_count: " << bs_count.size() << std::endl;
+
+
+    // any()
+    std::bitset<4> bs_any1("0010");
+    std::bitset<4> bs_any0("0000");
+    std::cout << "bs_any1: " << bs_any1 << ", bs_any1.any(): " << bs_any1.any() << std::endl;
+    std::cout << "bs_any0: " << bs_any0 << ", bs_any0.any(): " << bs_any0.any() << std::endl;
+
+    // none()
+    std::bitset<4> bs_none1("0010"); // same as bs_any1
+    std::bitset<4> bs_none0("0000"); // same as bs_any0
+    std::cout << "bs_none1: " << bs_none1 << ", bs_none1.none(): " << bs_none1.none() << std::endl;
+    std::cout << "bs_none0: " << bs_none0 << ", bs_none0.none(): " << bs_none0.none() << std::endl;
+
+    // all()
+    std::bitset<4> bs_all1("1111");
+    std::bitset<4> bs_all0("1101");
+    std::cout << "bs_all1: " << bs_all1 << ", bs_all1.all(): " << bs_all1.all() << std::endl;
+    std::cout << "bs_all0: " << bs_all0 << ", bs_all0.all(): " << bs_all0.all() << std::endl;
+
+    return 0;
+}
+```
+
+### 5. **位运算操作符**
+
+```C++
+#include <iostream>
+#include <string>
+#include <bitset>
+
+int main() {
+    std::bitset<4> b1("1100");
+    std::bitset<4> b2("1010");
+    std::cout << "b1: " << b1 << std::endl;
+    std::cout << "b2: " << b2 << std::endl;
+
+    // & (按位与 AND)
+    std::bitset<4> result_and = b1 & b2; // 1000
+    std::cout << "b1 & b2: " << result_and << std::endl;
+
+    // | (按位或 OR)
+    std::bitset<4> result_or = b1 | b2;   // 1110
+    std::cout << "b1 | b2: " << result_or << std::endl;
+
+    // ^ (按位异或 XOR)
+    std::bitset<4> result_xor = b1 ^ b2; // 0110
+    std::cout << "b1 ^ b2: " << result_xor << std::endl;
+
+    // ~ (按位非 NOT)
+    std::bitset<4> b_not_original("1100"); // Using a new variable to avoid confusion with b1
+    std::bitset<4> result_not = ~b_not_original; // 0011
+    std::cout << "~(" << b_not_original << "): " << result_not << std::endl;
+
+    // << (左移), >> (右移)
+    std::bitset<8> b_shift("00011010");
+    std::cout << "b_shift original: " << b_shift << std::endl;
+    std::bitset<8> result_lshift = b_shift << 2; // 01101000
+    std::bitset<8> result_rshift = b_shift >> 2; // 00000110
+    std::cout << "b_shift << 2: " << result_lshift << std::endl;
+    std::cout << "b_shift >> 2: " << result_rshift << std::endl;
+
+    // 复合赋值运算符
+    std::bitset<4> b_assign("1100");
+    std::cout << "b_assign initial: " << b_assign << std::endl;
+    b_assign |= std::bitset<4>("0011"); // b_assign 变为 1111
+    std::cout << "b_assign after |= \"0011\": " << b_assign << std::endl;
+
+    b_assign &= std::bitset<4>("1010"); // b_assign (1111) &= 1010 -> 1010
+    std::cout << "b_assign after &= \"1010\": " << b_assign << std::endl;
+
+    b_assign ^= std::bitset<4>("1100"); // b_assign (1010) ^= 1100 -> 0110
+    std::cout << "b_assign after ^= \"1100\": " << b_assign << std::endl;
+
+    std::bitset<8> b_shift_assign("00001111");
+    std::cout << "b_shift_assign initial: " << b_shift_assign << std::endl;
+    b_shift_assign <<= 2; // 00111100
+    std::cout << "b_shift_assign after <<= 2: " << b_shift_assign << std::endl;
+    b_shift_assign >>= 3; // 00000111
+    std::cout << "b_shift_assign after >>= 3: " << b_shift_assign << std::endl;
+
+    return 0;
+}
+```
+
+### 6. **转换**
+
+```C++
+#include <iostream>
+#include <string>
+#include <bitset>
+#include <stdexcept> // For std::overflow_error
+
+int main() {
+    // to_string(zero, one)
+    std::bitset<8> bs_to_str("00110101");
+    std::cout << "bs_to_str: " << bs_to_str << std::endl;
+    std::string str1 = bs_to_str.to_string();
+    std::string str2 = bs_to_str.to_string('_', '#');
+    std::cout << "to_string(): \"" << str1 << "\"" << std::endl;
+    std::cout << "to_string('_', '#'): \"" << str2 << "\"" << std::endl;
+
+    // to_ulong()
+    std::bitset<8> bs_to_ul("00001101"); // 13
+    std::cout << "bs_to_ul: " << bs_to_ul << std::endl;
+    unsigned long ul = bs_to_ul.to_ulong();
+    std::cout << "to_ulong(): " << ul << std::endl;
+
+    std::bitset<32> bs_ul_max; // Max for unsigned long (assuming 32-bit ulong)
+    bs_ul_max.set(); // All ones
+    try {
+        unsigned long ul_max_val = bs_ul_max.to_ulong();
+        std::cout << "bs_ul_max (" << bs_ul_max.size() << " bits all set) to_ulong(): " << ul_max_val << std::endl;
+    } catch (const std::overflow_error& e) {
+        std::cerr << "For bs_ul_max (" << bs_ul_max.size() << " bits): " << e.what() << std::endl;
+    }
+
+
+    std::bitset<64> bs_ull_fits; // Fits in unsigned long long
+    bs_ull_fits[63] = 1; // Set MSB for a large number
+    bs_ull_fits[0] = 1;  // Set LSB
+    std::cout << "bs_ull_fits: " << bs_ull_fits << std::endl;
+    try {
+        unsigned long long ull_fits_val = bs_ull_fits.to_ullong();
+        std::cout << "bs_ull_fits to_ullong(): " << ull_fits_val << std::endl;
+    } catch (const std::overflow_error& e) {
+        std::cerr << "For bs_ull_fits: " << e.what() << std::endl;
+    }
+
+
+    // Example of overflow with to_ulong()
+    // On most systems, unsigned long is 32 or 64 bits. std::bitset<N> N can be larger.
+    // If N > (bits in unsigned long), to_ulong() can overflow if any bit beyond
+    // the capacity of unsigned long is set.
+    // Let's assume unsigned long is 32 bits for this test.
+    // A bitset of 33 will cause overflow if bit 32 is set.
+    const int ulong_bits = sizeof(unsigned long) * 8;
+    std::cout << "unsigned long has " << ulong_bits << " bits on this system." << std::endl;
+
+    std::bitset<ulong_bits + 1> bs_overflow_test;
+    bs_overflow_test[ulong_bits] = 1; // Set the bit that is just outside ulong's range
+    std::cout << "bs_overflow_test (size " << ulong_bits + 1 << "): " << bs_overflow_test << std::endl;
+    try {
+        unsigned long ul_err = bs_overflow_test.to_ulong();
+        std::cout << "bs_overflow_test.to_ulong() (should not print if overflow): " << ul_err << std::endl;
+    } catch (const std::overflow_error& e) {
+        std::cerr << "Overflow error for bs_overflow_test.to_ulong(): " << e.what() << std::endl;
+    }
+
+    // to_ullong()
+    std::bitset<36> bs_to_ull("101010101010101010101010101010101010"); // 36 bits
+    std::cout << "bs_to_ull: " << bs_to_ull << std::endl;
+    unsigned long long ull = bs_to_ull.to_ullong();
+    std::cout << "to_ullong() example value: " << ull << std::endl;
+
+    const int ullong_bits = sizeof(unsigned long long) * 8;
+    std::cout << "unsigned long long has " << ullong_bits << " bits on this system." << std::endl;
+    if (ullong_bits < 65) { // Only run overflow test if ullong is less than 65 bits
+        std::bitset<65> bs_ull_overflow; // Could cause overflow if unsigned long long is 64 bits
+        bs_ull_overflow[64] = 1; // Set the 65th bit (index 64)
+        std::cout << "bs_ull_overflow (size 65): " << bs_ull_overflow << std::endl;
+        try {
+            unsigned long long ull_err = bs_ull_overflow.to_ullong();
+            std::cout << "bs_ull_overflow.to_ullong() (should not print if overflow): " << ull_err << std::endl;
+        } catch (const std::overflow_error& e) {
+            std::cerr << "Overflow error for bs_ull_overflow.to_ullong(): " << e.what() << std::endl;
+        }
+    }
+
 
     return 0;
 }
