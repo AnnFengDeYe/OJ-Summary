@@ -1,0 +1,141 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "MoveSemantic",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "main1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main1-Debug-9f8fd07a878d96782a72.json",
+					"name" : "main1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main10::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main10-Debug-980f1fb2b034fbb2f294.json",
+					"name" : "main10",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main2-Debug-418966e09a823fb56381.json",
+					"name" : "main2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main3-Debug-771145d2c117668f12d3.json",
+					"name" : "main3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main4::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main4-Debug-706ff16b326b1e90271e.json",
+					"name" : "main4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main5::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main5-Debug-024bbe90757f9fe76711.json",
+					"name" : "main5",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main6::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main6-Debug-a0ad26d4d8f5da6729ab.json",
+					"name" : "main6",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main7::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main7-Debug-31984d36c9fe2175f2c4.json",
+					"name" : "main7",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main8::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main8-Debug-44b218c9aafd4ed48be3.json",
+					"name" : "main8",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main9::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main9-Debug-8be65acf0875267954c8.json",
+					"name" : "main9",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/annfengdeye/CLionProjects/MoveSemantic/cmake-build-debug",
+		"source" : "/Users/annfengdeye/CLionProjects/MoveSemantic"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
