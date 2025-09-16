@@ -1,0 +1,5 @@
+/Users/annfengdeye/CLionProjects/C_MemorySegmentation/cmake-build-debug/CMakeFiles/main1.dir
+/Users/annfengdeye/CLionProjects/C_MemorySegmentation/cmake-build-debug/CMakeFiles/main2.dir
+/Users/annfengdeye/CLionProjects/C_MemorySegmentation/cmake-build-debug/CMakeFiles/main3.dir
+/Users/annfengdeye/CLionProjects/C_MemorySegmentation/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/annfengdeye/CLionProjects/C_MemorySegmentation/cmake-build-debug/CMakeFiles/rebuild_cache.dir
