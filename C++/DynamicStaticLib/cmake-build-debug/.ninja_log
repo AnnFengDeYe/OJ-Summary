@@ -1,0 +1,18 @@
+# ninja log v6
+1	23	1761819937220611530	CMakeFiles/StaticDemo_1_lib.dir/StaticDemo_1/my_multiply.cpp.o	b617e19ad565fa84
+1	204	1761819986901095557	CMakeFiles/StaticDemo_2_lib.dir/StaticDemo_2/libB.cpp.o	8a2dd067b3be28e5
+621	651	1761819937840769852	StaticDemo_1_main	57369fba155b8eda
+12	216	1761819922209984522	CMakeFiles/main.dir/main.cpp.o	e138a390eea6f766
+1	209	1761819937220738861	CMakeFiles/StaticDemo_1_main.dir/StaticDemo_1/main.cpp.o	e428108db4bc1ea5
+1	23	1761819937220373076	CMakeFiles/StaticDemo_1_lib.dir/StaticDemo_1/my_add.cpp.o	4cbf572a8b67a714
+228	255	1761819987127161790	StaticDemo_2_main	ce8fcab72303ce0d
+217	250	1761819922414691761	main	6f1bce07b9168562
+2	204	1761819986901228595	CMakeFiles/StaticDemo_2_main.dir/StaticDemo_2/main.cpp.o	918bbd0a10dda70d
+206	228	1761819987105904230	libStaticDemo_2_lib.a	226594b46e56ade6
+23	621	1761819937243083864	libStaticDemo_1_lib.a	14a75d06df7d2d36
+1	206	1761819986900821771	CMakeFiles/StaticDemo_2_lib.dir/StaticDemo_2/libA.cpp.o	df8a83d60f406e01
+1	23	1762008546513757896	CMakeFiles/DynamicDemo_1_lib.dir/DynamicDemo_1/my_add.cpp.o	15bfde93b215e96
+1	23	1762008546513976604	CMakeFiles/DynamicDemo_1_lib.dir/DynamicDemo_1/my_multiply.cpp.o	bbd175ef62571bf6
+23	58	1762008546535926711	libDynamicDemo_1_lib.dylib	486a886b8f4b4fb6
+1	219	1762008546514098271	CMakeFiles/DynamicDemo_1_main.dir/DynamicDemo_1/main.cpp.o	76250363973e1a9f
+220	253	1762008546732313303	DynamicDemo_1_main	b7d2dad0244235d

@@ -1,0 +1,9 @@
+/Users/annfengdeye/CLionProjects/DynamicStaticLib/cmake-build-debug/CMakeFiles/main.dir
+/Users/annfengdeye/CLionProjects/DynamicStaticLib/cmake-build-debug/CMakeFiles/StaticDemo_1_lib.dir
+/Users/annfengdeye/CLionProjects/DynamicStaticLib/cmake-build-debug/CMakeFiles/StaticDemo_1_main.dir
+/Users/annfengdeye/CLionProjects/DynamicStaticLib/cmake-build-debug/CMakeFiles/StaticDemo_2_lib.dir
+/Users/annfengdeye/CLionProjects/DynamicStaticLib/cmake-build-debug/CMakeFiles/StaticDemo_2_main.dir
+/Users/annfengdeye/CLionProjects/DynamicStaticLib/cmake-build-debug/CMakeFiles/DynamicDemo_1_lib.dir
+/Users/annfengdeye/CLionProjects/DynamicStaticLib/cmake-build-debug/CMakeFiles/DynamicDemo_1_main.dir
+/Users/annfengdeye/CLionProjects/DynamicStaticLib/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/annfengdeye/CLionProjects/DynamicStaticLib/cmake-build-debug/CMakeFiles/rebuild_cache.dir

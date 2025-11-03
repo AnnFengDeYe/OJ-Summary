@@ -1,0 +1,114 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "DynamicStaticLib",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "DynamicDemo_1_lib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-DynamicDemo_1_lib-Debug-40ea98643692414ed627.json",
+					"name" : "DynamicDemo_1_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "DynamicDemo_1_main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-DynamicDemo_1_main-Debug-8cc3c98db0733058d199.json",
+					"name" : "DynamicDemo_1_main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "StaticDemo_1_lib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-StaticDemo_1_lib-Debug-bf095bcde736ce8a232a.json",
+					"name" : "StaticDemo_1_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "StaticDemo_1_main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-StaticDemo_1_main-Debug-1c3cda5c5889405d1b9b.json",
+					"name" : "StaticDemo_1_main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "StaticDemo_2_lib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-StaticDemo_2_lib-Debug-490ecd2a8f5974c2b7c2.json",
+					"name" : "StaticDemo_2_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "StaticDemo_2_main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-StaticDemo_2_main-Debug-f8ff4ad9a0649fd78c2d.json",
+					"name" : "StaticDemo_2_main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main-Debug-04d788288ad772b6a712.json",
+					"name" : "main",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/annfengdeye/CLionProjects/DynamicStaticLib/cmake-build-debug",
+		"source" : "/Users/annfengdeye/CLionProjects/DynamicStaticLib"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}
