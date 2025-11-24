@@ -1,0 +1,12 @@
+
+# Added by Git Cleaner (安枫的叶)
+*.swo
+*.swp
+.AppleDouble
+.DS_Store
+.LSOverride
+._*
+.classpath
+.idea/
+.project
+.vscode/
