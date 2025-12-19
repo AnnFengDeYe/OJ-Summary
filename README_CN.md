@@ -30,13 +30,13 @@ C++ 体系浩如烟海，语法繁杂。然而，本系列教程的核心目的�
 
 | 主题 | 简介 | 前置知识 | YouTube | Bilibili |
 |------|------|----------|---------|----------|
-| **C_C++_ClockwiseSpiral** | 复杂变量声明的快速判断方法，顺时针螺旋法则是右左法则的改良版 | 无 | [链接]() | [链接]() |
-| **C_MemorySegmentation** | C++ 的内存布局或内存分段 | 无 | [链接]() | [链接]() |
-| **MoveSemantic** | C++ 的左值、右值和移动语义 | 无 | [链接]() | [链接]() |
-| **DynamicStaticLib** | C/C++ 程序从编译到运行的全生命周期 | C_MemorySegmentation | [链接]() | [链接]() |
-| **CppTypeAlias** | C++ 类型别名 | C_C++_ClockwiseSpiral, DynamicStaticLib | [链接]() | [链接]() |
-| **Cpp_SmartPtrs** | C++ 智能指针 | C_MemorySegmentation, MoveSemantic | [链接]() | [链接]() |
-| **Cpp_namespace** | C++ 命名空间 | DynamicStaticLib | [链接]() | [链接]() |
+| **C_C++_ClockwiseSpiral** | 复杂变量声明的快速判断方法，顺时针螺旋法则是右左法则的改良版 | 无 | [链接](https://www.youtube.com/watch?v=Y4643z08jeM) | [链接](https://www.bilibili.com/video/BV1jKhYzjEgE) |
+| **C_MemorySegmentation** | C++ 的内存布局或内存分段 | 无 | [链接](https://www.youtube.com/watch?v=rUAGJAhmpDg) | [链接](https://www.bilibili.com/video/BV1Sepyz7ECL) |
+| **MoveSemantic** | C++ 的左值、右值和移动语义 | 无 | [链接](https://www.youtube.com/watch?v=ywFJ-17n_sY) | [链接](https://www.bilibili.com/video/BV17ce7zLEzu) |
+| **DynamicStaticLib** | C/C++ 程序从编译到运行的全生命周期 | C_MemorySegmentation | [链接](https://www.youtube.com/watch?v=Xm-feSXlLVk) | [链接](https://www.bilibili.com/video/BV1Bw1qB1EwU) |
+| **CppTypeAlias** | C++ 类型别名 | C_C++_ClockwiseSpiral, DynamicStaticLib | [链接](https://www.youtube.com/watch?v=ezqmozV3p0M) | [链接](https://www.bilibili.com/video/BV1VWqvB5ELX) |
+| **Cpp_SmartPtrs** | C++ 智能指针 | C_MemorySegmentation, MoveSemantic | [链接](https://www.youtube.com/watch?v=l1RRedJbk5k) | [链接](https://www.bilibili.com/video/BV1ajWyzXEpj) |
+| **Cpp_namespace** | C++ 命名空间 | DynamicStaticLib | [链接](https://www.youtube.com/watch?v=n8uNKJSTyQc) | [链接](https://www.bilibili.com/video/BV1NTUpBoE59) |
 
 ### Python 系列
 
