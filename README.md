@@ -9,6 +9,21 @@ This repository contains code examples from my YouTube and Bilibili coding knowl
 - **YouTube**: [安枫的叶](https://www.youtube.com/@%E5%AE%89%E6%9E%AB%E7%9A%84%E5%8F%B6)
 - **Bilibili**: [安枫的叶](https://b23.tv/DglKNYp)
 
+## 💡 Design Philosophy
+
+C++ is a vast and complex language with intricate syntax. However, this tutorial series does not aim to simply pile up isolated syntax knowledge points — after all, in the AI era, pure memorization yields minimal returns. 
+
+Instead, this series is dedicated to **systematically connecting core C++ concepts**, helping learners build a solid knowledge framework where complex syntax details can naturally attach like branches to a tree trunk.
+
+**Key Features:**
+- **Simplified Physical World Models**: All code examples are carefully designed to avoid overwhelming syntax details, using minimalist real-world analogies instead
+- **Intuitive Analogies** (examples): 
+  - In the Smart Pointers tutorial, we use "private car" to represent `unique_ptr` (exclusive ownership) and "bus" for `shared_ptr` (shared ownership)
+  - In the Move Semantics tutorial, we use direct "relocation" of image pixels to illustrate efficient memory movement, rather than traditional copy operations
+  - More creative analogies await in the videos
+  
+Through these simple physical scenarios, we aim to help more people grasp the most essential and fundamental design philosophy of C++.
+
 ## 📚 Contents
 
 ### C++ Series
