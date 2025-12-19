@@ -26,7 +26,7 @@ Through these simple physical scenarios, we aim to help more people grasp the mo
 
 ## 📚 Contents
 
-### C++ Series
+### C/C++ Series
 
 | Topic | Description | Prerequisites | YouTube | Bilibili |
 |-------|-------------|---------------|---------|----------|
