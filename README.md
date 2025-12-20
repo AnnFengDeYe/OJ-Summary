@@ -11,9 +11,13 @@ This repository contains code examples from my YouTube and Bilibili coding knowl
 
 ## 💡 Design Philosophy
 
-C++ is a vast and complex language with intricate syntax. However, this tutorial series does not aim to simply pile up isolated syntax knowledge points — after all, in the AI era, pure memorization yields minimal returns. 
+The Tao of C++ lies not in accumulation, but in integration.
 
-Instead, this series is dedicated to **systematically connecting core C++ concepts**, helping learners build a solid knowledge framework where complex syntax details can naturally attach like branches to a tree trunk.
+Faced with the vast ocean of C++ syntax, fragmented learning often leads one astray. This is especially true in the era of ubiquitous AI-assisted programming, where rote memorization of syntax no longer builds a competitive moat.
+
+This series is dedicated to a deep synthesis of the C/C++ core, rejecting any artificial separation of the two or immersion in the superficial allure of Modern C++ syntax.
+
+This repository aims to assist learners in constructing a robust mental framework. With this foundation, obscure syntactic details cease to be items for rote memorization; instead, they become logical necessities, sprouting naturally like leaves from a solid trunk.
 
 **Key Features:**
 - **Simplified Physical World Models**: All code examples are carefully designed to avoid overwhelming syntax details, using minimalist real-world analogies instead
