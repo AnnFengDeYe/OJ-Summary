@@ -19,14 +19,18 @@ This series is dedicated to a deep synthesis of the C/C++ core, rejecting any ar
 
 This repository aims to assist learners in constructing a robust mental framework. With this foundation, obscure syntactic details cease to be items for rote memorization; instead, they become logical necessities, sprouting naturally like leaves from a solid trunk.
 
-**Key Features:**
-- **Simplified Physical World Models**: All code examples are carefully designed to avoid overwhelming syntax details, using minimalist real-world analogies instead
-- **Intuitive Analogies** (examples): 
-  - In the Smart Pointers tutorial, we use "private car" to represent `unique_ptr` (exclusive ownership) and "bus" for `shared_ptr` (shared ownership)
-  - In the Move Semantics tutorial, we use direct "relocation" of image pixels to illustrate efficient memory movement, rather than traditional copy operations
-  - More creative analogies await in the videos
-  
-Through these simple physical scenarios, we aim to help more people grasp the most essential and fundamental design philosophy of C++.
+**Core Features**
+
+- **Minimalist Physical Models** Every code example is meticulously crafted to strip away syntactic noise, grounding abstract programming concepts in intuitive, real-world analogies rather than overwhelming technical details.
+
+- **Intuitive Mental Analogies**
+  - **Smart Pointers**: `unique_ptr` is likened to a **"private car"** (exclusive ownership), while `shared_ptr` mirrors a **"public bus"** (shared access/mechanism).
+  - **Move Semantics**: Visualizes resource transfer as the direct **"relocation"** of image pixels, avoiding the high cost of traditional deep copying.
+  - Discover more insightful analogies in the accompanying video series.
+
+- **The Philosophy of Software Engineering** Technical choices are analyzed through an engineering lens. For instance, static linking is a strategy prioritizing deployment isolation (reliability), whereas dynamic linking acts as a trade-off favoring maintenance flexibility (extensibility).
+
+By leveraging these minimalist physical scenarios and code examples, this project aims to help learners construct a solid C/C++ system framework and grasp the essential design philosophy of the language.
 
 ## 📚 Contents
 
