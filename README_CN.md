@@ -1,4 +1,4 @@
-# OJ-Summary
+# Cpp-Mental-Models
 
 中文版 | [English](README.md)
 
@@ -43,14 +43,6 @@ C++ 之道，不在于多，而在于通。
 | **CppTypeAlias** | C++ 类型别名 | C_C++_ClockwiseSpiral, DynamicStaticLib | [链接](https://www.youtube.com/watch?v=ezqmozV3p0M) | [链接](https://www.bilibili.com/video/BV1VWqvB5ELX) |
 | **Cpp_SmartPtrs** | C++ 智能指针 | C_MemorySegmentation, MoveSemantic | [链接](https://www.youtube.com/watch?v=l1RRedJbk5k) | [链接](https://www.bilibili.com/video/BV1ajWyzXEpj) |
 | **Cpp_namespace** | C++ 命名空间 | DynamicStaticLib | [链接](https://www.youtube.com/watch?v=n8uNKJSTyQc) | [链接](https://www.bilibili.com/video/BV1NTUpBoE59) |
-
-### Python 系列
-
-_敬请期待..._
-
-### LeetCode 总结
-
-_敬请期待..._
 
 ---
 

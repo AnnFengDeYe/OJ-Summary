@@ -1,4 +1,4 @@
-# OJ-Summary
+# Cpp-Mental-Models
 
 [中文版](README_CN.md) | English
 
@@ -45,14 +45,6 @@ By leveraging these minimalist physical scenarios and code examples, this projec
 | **CppTypeAlias** | Introduction to type aliases in C++ | C_C++_ClockwiseSpiral, DynamicStaticLib | [Link](https://www.youtube.com/watch?v=ezqmozV3p0M) | [Link](https://www.bilibili.com/video/BV1VWqvB5ELX) |
 | **Cpp_SmartPtrs** | Introduction to C++ smart pointers | C_MemorySegmentation, MoveSemantic | [Link](https://www.youtube.com/watch?v=l1RRedJbk5k) | [Link](https://www.bilibili.com/video/BV1ajWyzXEpj) |
 | **Cpp_namespace** | Introduction to C++ namespaces | DynamicStaticLib | [Link](https://www.youtube.com/watch?v=n8uNKJSTyQc) | [Link](https://www.bilibili.com/video/BV1NTUpBoE59) |
-
-### Python Series
-
-_Coming soon..._
-
-### LeetCode Summary
-
-_Coming soon..._
 
 ---
 
